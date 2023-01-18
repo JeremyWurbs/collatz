@@ -20,7 +20,7 @@ pip install -r requirements.txt
 Run `main.py` to see compute the Collatz graph from 1 to N.
 
 ``` 
-python main.py 20
+python main.py 15
 ```
 
 The path and path length from 1 to N will print to screen, with the final graph
