@@ -29,7 +29,7 @@ def path(graph, n):
 
 def display_graph(graph):
     dsgraph = Graph(graph, directed=True)
-    dsgraph.plot(orientation='TB')
+    dsgraph.plot(orientation='LR')
 
 
 def main(N):

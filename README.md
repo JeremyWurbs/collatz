@@ -26,5 +26,5 @@ python main.py 20
 The path and path length from 1 to N will print to screen, with the final graph
 structure saved to *graph.png*.
 
-[graph.png](resources/graph_N=20.png)
+![graph.png](resources/graph_N=20.png)
 
