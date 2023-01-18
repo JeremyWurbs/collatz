@@ -1,3 +1,4 @@
+import sys
 from dsplot.graph import Graph
 
 
@@ -20,7 +21,7 @@ def add_branch(graph, n):
 
 
 def path(graph, n):
-    p = graph[n]
+    p = graph[n].copy()
     while p[-1] > 1:
         p.append(graph[p[-1]][0])
     return p
@@ -40,4 +41,7 @@ def main(N):
 
 
 if __name__ == '__main__':
-    main(1000)
+    if len(sys.argv) > 1:
+        main(int(sys.argv[1]))
+    else:
+        main(20)
