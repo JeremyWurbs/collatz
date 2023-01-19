@@ -36,7 +36,7 @@ def main(N):
     graph = compute_graph(N)
     for k in range(1, N+1):
         p = path(graph, k)
-        print(f'{k} ({len(p)}): {path(graph, k)}')
+        print(f'{k} ({len(p)}): {p}')
     display_graph(graph)
 
 
