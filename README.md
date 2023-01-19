@@ -53,8 +53,9 @@ graph.display(output_path='graph.png')
 
 # Generalized Collatz Graph
 
-If you wish to define the functions applied to even and odd numbers differently,
-you may use the GeneralizedCollatz class and pass in the desired functions.
+If you wish to define the functions applied to even and odd numbers directly,
+you may use the GeneralizedCollatz class and pass in user-defined functions, 
+resulting in graphs which may or may not always converge back to 1.
 
 ```python
 from generalized_collatz import GeneralizedGraph
@@ -65,7 +66,7 @@ graph.display(output_path='3N-1.png')
 
 ![3N-1](resources/3N-1.png)
 
-As can be seen, unlike the Collatz Conjecture proper (*2N+1*), the *2N-1* case 
+As can be seen, unlike the Collatz Conjecture proper (*3N+1*), the *3N-1* case 
 has multiple cycles. In general, it is very difficult to prove that a given 
 case will *always* go down to one.
 
