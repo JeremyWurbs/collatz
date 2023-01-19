@@ -28,6 +28,10 @@ graph structure saved to *graph.png*.
 
 ![graph.png](resources/graph_N=15.png)
 
+Note: While the CollatzGraph class can quickly compute the entire tree for N up 
+to a few tens of millions, the display function seems to have difficulty if 
+the number of nodes is above a few thousand.
+
 # Collatz Graph 
 
 You may use the CollatzGraph class to compute Collatz paths in your own code, 
