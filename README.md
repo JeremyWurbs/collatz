@@ -17,21 +17,21 @@ pip install -r requirements.txt
 
 # Sample
 
-Run `main.py` to see compute the Collatz graph from 1 to N.
+Refer to `main.py` to see how to compute the Collatz graph from 1 to N.
 
 ``` 
 python main.py 15
 ```
 
-The path and path length from 1 to N will print to screen, with the final graph
-structure saved to *graph.png*.
+The path and path length from 1 to N will be printed to screen, with the final 
+graph structure saved to *graph.png*.
 
 ![graph.png](resources/graph_N=15.png)
 
 # Collatz Graph 
 
 You may use the CollatzGraph class to compute Collatz paths in your own code, 
-play around interactively, or save entire Collatz graphs to a png file.
+play around interactively, or export an entire Collatz graph to a png file.
 
 ```python 
 from collatz import CollatzGraph
