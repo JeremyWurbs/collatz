@@ -92,3 +92,20 @@ graph.display(output_path='3N-3.png')
 ```
 
 ![3N+3](resources/3N-3.png)
+
+# Sequence Length
+
+The length of any given set of sequences can also easily be computed. Refer to
+(and/or run) `collatz_len.py` to produce the following plot of the sequence 
+length for every value of n up to 100,000.
+
+![sequence_length](resources/sequence_length.png)
+
+Feel free to make your own explorations. Utility methods for primality testing 
+and prime sieve generation have been given in `utilities.py`, should you want 
+to start looking at the intersection of the two. For example, below is a plot 
+of the number of primes in each sequence.
+
+![num_primes](resources/num_primes.png)
+
+Good luck hunting!
