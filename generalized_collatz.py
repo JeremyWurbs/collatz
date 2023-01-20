@@ -26,6 +26,12 @@ class GeneralizedGraph(CollatzGraph):
             n = d
         return self.graph
 
+    def add_level(self):
+        raise NotImplementedError()
+
+    def add_levels(self, levels):
+        raise NotImplementedError()
+
     def path(self, n):
         self.add_branch(n)
         p = self.graph[n].copy()
