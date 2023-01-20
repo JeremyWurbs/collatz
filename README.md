@@ -78,7 +78,7 @@ instantiating the graph.
 from collatz import CollatzGraph
 
 graph = CollatzGraph(levels=21)
-graph.display(graph.display(output_path='21_levels.png', orientation='TB'))
+graph.display(orientation='TB')
 ```
 
 ![21_levels](resources/21_levels.png)
