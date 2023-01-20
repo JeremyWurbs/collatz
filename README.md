@@ -104,7 +104,7 @@ length for every value of n up to 100,000.
 Feel free to make your own explorations. Utility methods for primality testing 
 and prime sieve generation have been given in `utilities.py`, should you want 
 to start looking at the intersection of the two. For example, below is a plot 
-of the number of primes in each sequence.
+of the number of primes in each sequence (refer to and/or run `prime_len.py`).
 
 ![num_primes](resources/num_primes.png)
 
