@@ -28,9 +28,9 @@ graph structure saved to *graph.png*.
 
 ![graph.png](resources/graph_N=15.png)
 
-Note: While the above reference methods (and analogous classes below) can 
+Note: While the `main.py` reference script (and analogous classes below) can 
 quickly compute the entire tree for N up to a few tens of millions, the display 
-function seems to have difficulty if the number of nodes is above a few 
+library seems to have difficulty if the number of nodes is above a few 
 thousand.
 
 # Collatz Graph 
