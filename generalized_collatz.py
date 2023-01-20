@@ -3,7 +3,7 @@ from collatz import CollatzGraph
 
 
 class GeneralizedGraph(CollatzGraph):
-    def __init__(self, N=None, even_function=lambda n: int(n/2), odd_function=lambda n: int(3*n + 1)):
+    def __init__(self, N=None, even_function=lambda n: n//2, odd_function=lambda n: 3*n + 1):
         super().__init__(N=0)
         self.even_function = even_function
         self.odd_function = odd_function
