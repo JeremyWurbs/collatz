@@ -1,5 +1,4 @@
-from dsplot.graph import Graph
-from collatz import CollatzGraph
+from collatz.collatz import CollatzGraph
 
 
 class GeneralizedGraph(CollatzGraph):

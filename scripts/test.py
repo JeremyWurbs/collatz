@@ -1,6 +1,5 @@
 import sys
-from collatz import CollatzGraph
-from generalized_collatz import GeneralizedGraph
+from collatz import CollatzGraph, GeneralizedGraph
 
 
 def main(N):

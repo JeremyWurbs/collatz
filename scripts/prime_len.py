@@ -2,8 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from collatz import CollatzGraph
-from utils import is_prime
+from collatz import CollatzGraph, is_prime
 
 
 N = 10000

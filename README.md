@@ -39,7 +39,7 @@ You may use the CollatzGraph class to compute Collatz paths in your own code,
 play around interactively, or export an entire Collatz graph to a png file.
 
 ```python 
-from collatz import CollatzGraph
+from collatz.collatz import CollatzGraph
 
 graph = CollatzGraph()
 path = graph(10)  # [5, 16, 8, 4, 2, 1]
@@ -50,7 +50,7 @@ parameter when instantiating the graph. The graph may then be saved to a png
 with the display method.
 
 ```python
-from collatz import CollatzGraph 
+from collatz.collatz import CollatzGraph
 
 graph = CollatzGraph(N=20)
 graph.display(output_path='graph.png')
@@ -61,7 +61,7 @@ also generate trees to a given depth using the `levels` parameter when
 instantiating the graph.
 
 ```python
-from collatz import CollatzGraph
+from collatz.collatz import CollatzGraph
 
 graph = CollatzGraph(levels=21)
 graph.display()
@@ -76,9 +76,9 @@ you may use the GeneralizedCollatz class and pass in user-defined functions,
 resulting in graphs which may or may not always converge back to 1.
 
 ```python
-from generalized_collatz import GeneralizedGraph
+from collatz.generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n-1)
+graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n - 1)
 graph.display(output_path='3N-1.png')
 ```
 
@@ -89,18 +89,18 @@ has multiple cycles. In general, it is very difficult to prove that a given
 case will *always* go down to one.
 
 ```python 
-from generalized_collatz import GeneralizedGraph
+from collatz.generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n+3)
+graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n + 3)
 graph.display(output_path='3N+3.png')
 ```
 
 ![3N+3](resources/3N+3.png)
 
 ```python 
-from generalized_collatz import GeneralizedGraph
+from collatz.generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n-3)
+graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n - 3)
 graph.display(output_path='3N-3.png')
 ```
 
