@@ -9,10 +9,24 @@ In order to create png images of the resulting collatz graphs, install graphviz
 apt install graphviz libgraphviz-dev
 ```
 
-Then install the python dependencies:
+Then install the package, either through a wheel or just installing the 
+dependendies. I.e.
+
+```
+git clone https://github.com/JeremyWurbs/collatz.git && cd collatz
+```
+
+Followed by one of the following:
 
 ``` 
 pip install -r requirements.txt
+```
+
+OR
+
+``` 
+python setup.py bdist_wheel
+pip install dist/collatz-1.0.0-py3-none-any.whl
 ```
 
 # Sample
@@ -39,7 +53,7 @@ You may use the CollatzGraph class to compute Collatz paths in your own code,
 play around interactively, or export an entire Collatz graph to a png file.
 
 ```python 
-from collatz.collatz import CollatzGraph
+from collatz import CollatzGraph
 
 graph = CollatzGraph()
 path = graph(10)  # [5, 16, 8, 4, 2, 1]
@@ -50,7 +64,7 @@ parameter when instantiating the graph. The graph may then be saved to a png
 with the display method.
 
 ```python
-from collatz.collatz import CollatzGraph
+from collatz import CollatzGraph
 
 graph = CollatzGraph(N=20)
 graph.display(output_path='graph.png')
@@ -61,7 +75,7 @@ also generate trees to a given depth using the `levels` parameter when
 instantiating the graph.
 
 ```python
-from collatz.collatz import CollatzGraph
+from collatz import CollatzGraph
 
 graph = CollatzGraph(levels=21)
 graph.display()
@@ -76,7 +90,7 @@ you may use the GeneralizedCollatz class and pass in user-defined functions,
 resulting in graphs which may or may not always converge back to 1.
 
 ```python
-from collatz.generalized_collatz import GeneralizedGraph
+from collatz import GeneralizedGraph
 
 graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n - 1)
 graph.display(output_path='3N-1.png')
@@ -89,7 +103,7 @@ has multiple cycles. In general, it is very difficult to prove that a given
 case will *always* go down to one.
 
 ```python 
-from collatz.generalized_collatz import GeneralizedGraph
+from collatz import GeneralizedGraph
 
 graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n + 3)
 graph.display(output_path='3N+3.png')
@@ -98,7 +112,7 @@ graph.display(output_path='3N+3.png')
 ![3N+3](resources/3N+3.png)
 
 ```python 
-from collatz.generalized_collatz import GeneralizedGraph
+from collatz import GeneralizedGraph
 
 graph = GeneralizedGraph(N=20, even_function=lambda n: n // 2, odd_function=lambda n: 3 * n - 3)
 graph.display(output_path='3N-3.png')
