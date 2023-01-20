@@ -78,7 +78,7 @@ resulting in graphs which may or may not always converge back to 1.
 ```python
 from generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: int(n/2), odd_function=lambda n: int(3*n-1))
+graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n-1)
 graph.display(output_path='3N-1.png')
 ```
 
@@ -91,7 +91,7 @@ case will *always* go down to one.
 ```python 
 from generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: int(n/2), odd_function=lambda n: int(3*n+3))
+graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n+3)
 graph.display(output_path='3N+3.png')
 ```
 
@@ -100,7 +100,7 @@ graph.display(output_path='3N+3.png')
 ```python 
 from generalized_collatz import GeneralizedGraph
 
-graph = GeneralizedGraph(N=20, even_function=lambda n: int(n/2), odd_function=lambda n: int(3*n-3))
+graph = GeneralizedGraph(N=20, even_function=lambda n: n//2, odd_function=lambda n: 3*n-3)
 graph.display(output_path='3N-3.png')
 ```
 
