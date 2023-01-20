@@ -16,9 +16,9 @@ class CollatzGraph(object):
         self.N = max((n, self.N))
         while n not in self.graph:
             if n % 2 == 0:
-                d = int(n/2)
+                d = n//2
             else:
-                d = int(3*n + 1)
+                d = 3*n + 1
             self.graph[n] = [d]
             n = d
 
