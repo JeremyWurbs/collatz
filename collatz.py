@@ -21,7 +21,6 @@ class CollatzGraph(object):
                 d = int(3*n + 1)
             self.graph[n] = [d]
             n = d
-        return self.graph
 
     def path(self, n):
         self.add_branch(n)
