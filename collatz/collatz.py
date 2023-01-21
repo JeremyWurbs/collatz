@@ -1,3 +1,4 @@
+from tqdm import tqdm
 from dsplot.graph import Graph
 
 
@@ -12,7 +13,7 @@ class CollatzGraph(object):
             N = 0
         self.N = N
 
-        for n in range(1, self.N+1):
+        for n in tqdm(range(1, self.N+1)):
             self.add_branch(n)
 
     def add_branch(self, n):

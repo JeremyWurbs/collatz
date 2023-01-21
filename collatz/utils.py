@@ -1,3 +1,5 @@
+from itertools import accumulate, chain, repeat, tee
+import random
 import numpy as np
 
 
@@ -35,3 +37,20 @@ def prime_sieve(N):
             sieve[k * k // 3::2 * k] = False
             sieve[k * (k - 2 * (i & 1) + 4) // 3::2 * k] = False
     return np.r_[2, 3, ((3 * np.nonzero(sieve)[0][1:] + 1) | 1)]
+
+
+def chunk(xs, n, randomize=True):
+    """Break the list, xs, into n even chunks.
+
+    Reference: https://wordaligned.org/articles/slicing-a-list-evenly-with-python
+    """
+    assert n > 0
+    if randomize:
+        random.shuffle(xs)
+    L = len(xs)
+    s, r = divmod(L, n)
+    widths = chain(repeat(s+1, r), repeat(s, n-r))
+    offsets = accumulate(chain((0,), widths))
+    b, e = tee(offsets)
+    next(e)
+    return [xs[s] for s in map(slice, b, e)]

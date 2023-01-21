@@ -5,26 +5,26 @@
 In order to create png images of the resulting collatz graphs, install graphviz
 (used by dsplot):
 
-```
+```commandline
 apt install graphviz libgraphviz-dev
 ```
 
 Then install the package, either through a wheel or just installing the 
 dependendies. I.e.
 
-```
+```commandline
 git clone https://github.com/JeremyWurbs/collatz.git && cd collatz
 ```
 
 Followed by one of the following:
 
-``` 
+```commandline
 pip install -r requirements.txt
 ```
 
 OR
 
-``` 
+```commandline
 python setup.py bdist_wheel
 pip install dist/collatz-1.0.0-py3-none-any.whl
 ```
@@ -33,7 +33,7 @@ pip install dist/collatz-1.0.0-py3-none-any.whl
 
 Refer to `main.py` to see how to compute the Collatz graph from 1 to N.
 
-``` 
+```commandline
 python main.py 15
 ```
 
@@ -136,3 +136,40 @@ of the number of primes in each sequence (refer to and/or run `prime_len.py`).
 ![num_primes](resources/num_primes.png)
 
 Good luck hunting!
+
+# Parallelized Graph Computation
+
+It is also possible to compute the graph with multiple workers, which does 
+speed up processing for smaller graphs, but unfortunately it is unlikely to 
+improve performance for larger graphs as the copying and merging of the 
+final results seems to dwarf any performance gains.
+
+```python
+import time
+from collatz import CollatzGraph, ParallelCollatzGraph
+
+N = 100000000  # 100 million
+
+t1 = time.process_time()
+graph = CollatzGraph(N=N)
+t2 = time.process_time()
+print(f'Serial CollatzGraph took {t2-t1} seconds')
+
+t1 = time.process_time()
+p_graph = ParallelCollatzGraph(N=N, num_workers=4)
+t2 = time.process_time()
+print(f'Parallel CollatzGraph with 4 workers took {t2-t1} seconds')
+
+t1 = time.process_time()
+p_graph = ParallelCollatzGraph(N=N, num_workers=16)
+t2 = time.process_time()
+print(f'Parallel CollatzGraph with 16 workers took {t2-t1} seconds')
+```
+
+```text
+Serial CollatzGraph took 171.689211777 seconds
+Parallel CollatzGraph with 4 workers took 423.087870682 seconds
+Parallel CollatzGraph with 16 workers took 866.083695349 seconds
+```
+
+Note: in addition to taking longer, using 16 workers also takes ~270GB memory.
