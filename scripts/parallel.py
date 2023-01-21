@@ -3,19 +3,17 @@ import time
 from collatz import CollatzGraph, ParallelCollatzGraph
 
 
-N = 100
+N = [100, 10000, ]
+W = [2, 4, 8, 16, ]
 
-t1 = time.process_time()
-graph = CollatzGraph(N=N)
-t2 = time.process_time()
-print(f'Serial CollatzGraph took {t2-t1} seconds')
+for N_ in N:
+    t1 = time.process_time()
+    CollatzGraph(N=N_)
+    t2 = time.process_time()
+    print(f'\nWorkers: 1, Computation Time: \t{t2-t1:.4f} seconds,  \t{N_} Nodes')
 
-t1 = time.process_time()
-p_graph4 = ParallelCollatzGraph(N=N, num_workers=4)
-t2 = time.process_time()
-print(f'Parallel CollatzGraph with 4 workers took {t2-t1} seconds')
-
-t1 = time.process_time()
-p_graph16 = ParallelCollatzGraph(N=N, num_workers=16)
-t2 = time.process_time()
-print(f'Parallel CollatzGraph with 16 workers took {t2-t1} seconds')
+    for w in W:
+        t1 = time.process_time()
+        ParallelCollatzGraph(N=N_, num_workers=w)
+        t2 = time.process_time()
+        print(f'Workers: {w}, Computation Time: \t{t2-t1:.4f} seconds,  \t{N_} Nodes')

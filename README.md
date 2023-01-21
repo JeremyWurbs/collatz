@@ -135,12 +135,10 @@ of the number of primes in each sequence (refer to and/or run `prime_len.py`).
 
 ![num_primes](resources/num_primes.png)
 
-Good luck hunting!
-
 # Parallelized Graph Computation
 
 It is also possible to compute the graph with multiple workers, which does 
-speed up processing for smaller graphs, but unfortunately it is unlikely to 
+speed up processing for smaller graphs, but unfortunately is unlikely to 
 improve performance for larger graphs as the copying and merging of the 
 final results seems to dwarf any performance gains.
 
@@ -148,28 +146,24 @@ final results seems to dwarf any performance gains.
 import time
 from collatz import CollatzGraph, ParallelCollatzGraph
 
-N = 100000000  # 100 million
+N = 100_000_000
 
 t1 = time.process_time()
-graph = CollatzGraph(N=N)
+CollatzGraph(N=N)
 t2 = time.process_time()
-print(f'Serial CollatzGraph took {t2-t1} seconds')
+print(f'\nSerial computation took {t2-t1:.4f} seconds')
 
-t1 = time.process_time()
-p_graph = ParallelCollatzGraph(N=N, num_workers=4)
-t2 = time.process_time()
-print(f'Parallel CollatzGraph with 4 workers took {t2-t1} seconds')
-
-t1 = time.process_time()
-p_graph = ParallelCollatzGraph(N=N, num_workers=16)
-t2 = time.process_time()
-print(f'Parallel CollatzGraph with 16 workers took {t2-t1} seconds')
+for w in [4, 16]:
+    t1 = time.process_time()
+    ParallelCollatzGraph(N=N, num_workers=w)
+    t2 = time.process_time()
+    print(f'Parallel computation with {w} workers took {t2-t1:.2f} seconds')
 ```
 
 ```text
-Serial CollatzGraph took 171.689211777 seconds
-Parallel CollatzGraph with 4 workers took 423.087870682 seconds
-Parallel CollatzGraph with 16 workers took 866.083695349 seconds
+Serial computation took 171.68 seconds
+Parallel computation with 4 workers took 423.08 seconds
+Parallel computation with 16 workers took 866.08 seconds
 ```
 
 Note: in addition to taking longer, using 16 workers also takes ~270GB memory.
